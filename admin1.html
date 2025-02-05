@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="admin1.css">
+</head>
+<body>
+    <div class="dashboard">
+        <div class="card full-width">
+            <h2>Service Performance Overview</h2>
+            <div class="chart-container">
+                <canvas id="serviceChart"></canvas>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>
+                Top Services
+                <button class="edit-btn" onclick="openEditModal('top-services')">Edit</button>
+            </h2>
+            <div class="metrics">
+                <div class="metric-card">
+                    <div class="metric-value">Digital Printing</div>
+                    <div class="metric-label">Most Used Service</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">87%</div>
+                    <div class="metric-label">Utilization Rate</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>
+                Inventory Status
+                <button class="edit-btn" onclick="openEditModal('inventory')">Edit</button>
+            </h2>
+            <div class="metrics">
+                <div class="metric-card">
+                    <div class="metric-value">24</div>
+                    <div class="metric-label">Low Stock Items</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-value">156</div>
+                    <div class="metric-label">Total Items</div>
+                </div>
+            </div>
+            <div class="inventory-alert">
+                Low stock alert: Printing materials need restock
+            </div>
+        </div>
+
+        <div class="card full-width">
+            <h2>
+                Services Overview
+                <button class="edit-btn" onclick="openEditModal('services')">Edit</button>
+            </h2>
+            <div class="service-list">
+                <div class="service-item">Digital Printing</div>
+                <div class="service-item">Silkscreen</div>
+                <div class="service-item">Sublimation</div>
+                <div class="service-item">Umbrellas</div>
+                <div class="service-item">Shirt Printing</div>
+                <div class="service-item">Bag Printing</div>
+                <div class="service-item">Mugs</div>
+                <div class="service-item">Lanyards</div>
+                <div class="service-item">PVC ID</div>
+                <div class="service-item">Piso Print</div>
+                <div class="service-item">Typing Job</div>
+            </div>
+        </div>
+
+            <div class="message-center">
+                <div class="message-header">
+                    <h2>
+                        <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                        </svg>
+                        Admin Message Center
+                    </h2>
+                </div>
+        
+                <div class="tab-container">
+                    <div class="tab-buttons">
+                        <button class="tab-button active" data-tab="orders">Orders</button>
+                        <button class="tab-button" data-tab="messages">Customer Messages</button>
+                    </div>
+        
+                    <div id="orders" class="message-list active">
+                        <!-- Orders will be populated here -->
+                    </div>
+        
+                    <div id="messages" class="message-list">
+                        <!-- Messages will be populated here -->
+                    </div>
+                </div>
+            </div>
+    
+    
+    <div id="editModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">Edit</h2>
+            <div id="modalContent">
+            </div>
+            <div class="modal-buttons">
+                <button class="close-btn" onclick="closeModal()">Cancel</button>
+                <button onclick="saveChanges()">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+    <script src="admin1.js"></script>
+
+</body>
+</html>
